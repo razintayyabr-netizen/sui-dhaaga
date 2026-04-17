@@ -1,6 +1,10 @@
 export default function Hero() {
   return (
     <section className="hero">
+      <div className="hero-bg">
+        <img src="/images/anarkali1.jpg" alt="" />
+        <div className="hero-overlay" />
+      </div>
       <div className="hero-content">
         <div className="hero-badge">✨ Crafted with Love</div>
         <h1 className="hero-title">Sui Dhaaga</h1>

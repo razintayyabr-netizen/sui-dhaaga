@@ -1,10 +1,10 @@
 const items = [
-  { emoji: '👗', label: 'Anarkali Lehenga' },
-  { emoji: '👚', label: 'Designer Blouse' },
-  { emoji: '🥻', label: 'Simple Suit' },
-  { emoji: '🧵', label: 'Custom Stitching' },
-  { emoji: '✨', label: 'Embroidery Work' },
-  { emoji: '👒', label: 'Ladies Wear' },
+  { emoji: null, label: 'Anarkali Lehenga', image: '/images/anarkali1.jpg' },
+  { emoji: null, label: 'Designer Blouse', image: '/images/blouse1.jpg' },
+  { emoji: null, label: 'Simple Suit', image: '/images/suit1.jpg' },
+  { emoji: null, label: 'Custom Stitching', image: '/images/stitching1.jpg' },
+  { emoji: null, label: 'Embroidery Work', image: '/images/embroidery2.jpg' },
+  { emoji: null, label: 'Ladies Wear', image: '/images/ladies1.jpg' },
 ];
 
 export default function Gallery() {
@@ -18,7 +18,14 @@ export default function Gallery() {
         </div>
         <div className="gallery-grid">
           {items.map((item, i) => (
-            <div key={i} className="gallery-item" data-label={item.label}>{item.emoji}</div>
+            <div key={i} className="gallery-item" data-label={item.label} style={item.image ? { background: 'none' } : {}}>
+              {item.image ? (
+                <img src={item.image} alt={item.label} style={{ width: '100%', height: '100%', objectFit: 'cover' }} />
+              ) : (
+                <span>{item.emoji}</span>
+              )}
+              <div style={{ position: 'absolute', bottom: 0, left: 0, right: 0, padding: '16px', background: 'linear-gradient(transparent, rgba(0,0,0,0.5))', color: 'white', fontSize: '13px', fontWeight: 500 }}>{item.label}</div>
+            </div>
           ))}
         </div>
       </div>
